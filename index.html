@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Video Editor Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #0b0b0f;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== CINEMATIC HERO ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at center, #1a1a2e, #0b0b0f);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg, #00f5ff, #7c4dff, #00f5ff);
+  animation: rotate 10s linear infinite;
+  opacity: 0.08;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.hero span {
+  color: #00f5ff;
+}
+
+.hero p {
+  margin-top: 15px;
+  color: #bdbdbd;
+}
+
+/* CTA Button */
+.btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: 1px solid #00f5ff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 30px;
+}
+
+.btn:hover {
+  background: #00f5ff;
+  color: black;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00f5ff;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 100px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #00f5ff;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  text-align: center;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+/* ===== PORTFOLIO ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 15px;
+  overflow: hidden;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: 0.6s ease;
+  backdrop-filter: blur(10px);
+}
+
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card iframe {
+  width: 100%;
+  height: 180px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  border-color: #00f5ff;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skill {
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  text-align: center;
+  color: #aaa;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content fade">
+    <h1>Hi, I'm <span>Your Name</span></h1>
+    <p>Video Editor • Motion Designer • Storyteller</p>
+    <button class="btn" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">
+      View My Work
+    </button>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title fade">About Me</h2>
+  <p class="about fade">
+    I am a video editor with 4+ years of experience specializing in high-retention short-form content,
+    YouTube videos, and social media ads. I focus on pacing, storytelling, and visual impact using
+    Premiere Pro and DaVinci Resolve.
+  </p>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <h2 class="section-title fade">Selected Work</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title fade">Skills</h2>
+  <div class="skills fade">
+    <div class="skill">Adobe Premiere Pro</div>
+    <div class="skill">DaVinci Resolve</div>
+    <div class="skill">Motion Graphics</div>
+    <div class="skill">Color Grading</div>
+    <div class="skill">Short-form Content</div>
+    <div class="skill">YouTube Editing</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title fade">Contact</h2>
+  <p class="contact fade">yourname@email.com</p>
+  <p class="contact fade">@yourinstagram</p>
+</section>
+
+<footer>
+  © 2026 Your Name — Crafted with precision
+</footer>
+
+<script>
+// ===== SCROLL ANIMATION =====
+const elements = document.querySelectorAll('.fade, .card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+elements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
